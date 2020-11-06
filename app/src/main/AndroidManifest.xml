@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".ProfileActivity">
-
-
-
-        </activity>
+        <activity android:name=".ReportActivity"></activity>
+        <activity android:name=".LibraryActivity" />
+        <activity android:name=".EquipmentActivity" />
+        <activity android:name=".GeneralActivity" />
+        <activity android:name=".ProfileActivity" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
@@ -24,9 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

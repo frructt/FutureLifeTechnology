@@ -44,7 +44,7 @@ public class LoginFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
         smartDvorDatabaseHelper = new SmartDvorDatabaseHelper(this.requireContext());
 
-        editTextPhoneNumber = rootView.findViewById(R.id.et_signin_phoneNumber);
+        editTextPhoneNumber = rootView.findViewById(R.id.et_signin_username);
         editTextPassword = rootView.findViewById(R.id.et_signin_password);
 
         btnLogin = rootView.findViewById(R.id.btn_signin);

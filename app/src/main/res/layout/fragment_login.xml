@@ -17,28 +17,27 @@
             android:id="@+id/logo_big"
             android:layout_width="fill_parent"
             android:layout_height="162dp"
-            android:layout_above="@id/textInputLayoutPhoneNumber"
-            android:src="@drawable/logo_big" />
+            android:src="@drawable/logo_right" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutSignInPhoneNumber"
+            android:id="@+id/textInputLayoutSignInUsername"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/textInputLayoutPassword"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             android:layout_marginBottom="-70dp"
             android:layout_marginTop="90dp"
             android:textColorHint="@color/colorLightFont"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_signin_phoneNumber"
+                android:id="@+id/et_signin_username"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/round_corner"
+                android:background="@drawable/round_corner_green"
                 android:fontFamily="@font/montserrat_light"
-                android:hint="@string/phone_number"
+                android:hint="@string/username"
                 android:inputType="phone"
                 android:paddingStart="20dp"
                 android:textColor="@color/colorLightFont"
@@ -50,26 +49,26 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="40dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="60dp"
             android:paddingTop="60dp"
             android:textColorHint="@color/colorLightFont"
             app:errorEnabled="true"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/colorLightFont">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_signin_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:paddingStart="20dp"
-                    android:hint="@string/password"
-                    android:fontFamily="@font/montserrat_light"
-                    android:inputType="textPassword"
-                    android:background="@drawable/round_corner"
-                    android:textColor="@color/colorLightFont"
-                    android:textSize="22sp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_signin_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/round_corner_green"
+                android:fontFamily="@font/montserrat_light"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingStart="20dp"
+                android:textColor="@color/colorLightFont"
+                android:textSize="22sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -80,11 +79,11 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="75dp"
             android:layout_marginRight="100dp"
-            android:background="@drawable/round_corner"
+            android:background="@drawable/round_corner_green"
             android:text="@string/sign_in"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="25sp"
-            android:textColor="@color/colorMainFont" />
+            android:textColor="@color/colorLightFont" />
 
 
         <LinearLayout
@@ -108,7 +107,7 @@
                 android:fontFamily="@font/montserrat_light"
                 android:textSize="15sp"
                 android:layout_marginBottom="20dp"
-                android:textColor="@color/colorLightFont"
+                android:textColor="@color/colorMainFont"
                 android:layout_gravity="center_horizontal" />
 
 <!--            <LinearLayout-->

@@ -8,8 +8,9 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="gray">#D3D3D3</color>
 
-    <color name="colorBackground">#175FFF</color>
-    <color name="colorButton">#4376E6</color>
-    <color name="colorLightFont">#D8DCE5</color>
-    <color name="colorMainFont">#FFFFFF</color>
+    <color name="colorBackground">#eaeaea</color>
+    <color name="colorButtonBlue">#368cbf</color>
+    <color name="colorButtonGreen">#7ebc59</color>
+    <color name="colorLightFont">#FFFFFF</color>
+    <color name="colorMainFont">#33363b</color>
 </resources>

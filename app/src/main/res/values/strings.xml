@@ -5,8 +5,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="swipe_left_for_sign_up">Swipe Left for Sign Up</string>
     <string name="sign_in">Sign In</string>
-    <string name="password">Password</string>
+    <string name="password">password</string>
     <string name="phone_number">Phone Number</string>
+    <string name="username">username</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 
     <string name="street">Street</string>
     <string name="house_number">house</string>
@@ -21,4 +24,22 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="equipment">Equipment</string>
+    <string name="library">Library</string>
+    <string name="report">Report</string>
+    <string name="feedback">Feedback</string>
+
+    <string name="logout">Logout</string>
+
+    <string name="name">Name</string>
+    <string name="model">Model</string>
+    <string name="serial_number">Serial Number</string>
+    <string name="ftl_label">FTL Label</string>
+
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+
+    <string name="report_msg">Put your report.</string>
+
 </resources>

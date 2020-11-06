@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LoginFragment"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+        <ImageView
+            android:id="@+id/logo_big"
+            android:layout_width="212dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:layout_above="@id/textInputLayoutName"
+            android:src="@drawable/logo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="-40dp"
+            android:layout_marginTop="40dp"
+            android:textColorHint="@color/colorButtonBlue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/round_corner_border"
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="@string/name"
+                android:inputType="text"
+                android:paddingStart="20dp"
+                android:textColor="@color/colorButtonBlue"
+                android:textSize="22sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textInputLayoutModel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="20dp"
+            android:textColorHint="@color/colorButtonBlue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_model"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/round_corner_border"
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="@string/model"
+                android:inputType="text"
+                android:paddingStart="20dp"
+                android:textColor="@color/colorButtonBlue"
+                android:textSize="22sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="40dp"
+            android:textColorHint="@color/colorButtonBlue"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_serial_number"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/round_corner_border"
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="@string/serial_number"
+                android:inputType="number"
+                android:paddingStart="20dp"
+                android:textColor="@color/colorButtonBlue"
+                android:textSize="22sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutFtlLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="40dp"
+            android:textColorHint="@color/colorButtonBlue"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ftl_number"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/round_corner_border"
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="@string/ftl_label"
+                android:inputType="number"
+                android:paddingStart="20dp"
+                android:textColor="@color/colorButtonBlue"
+                android:textSize="22sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textInputLayoutSignInPassword"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/round_corner"
+            android:fontFamily="@font/montserrat_light"
+            android:text="@string/save"
+            android:textColor="@color/colorLightFont"
+            android:textSize="25sp" />
+
+        <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textInputLayoutSignInPassword"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginRight="100dp"
+            android:layout_marginBottom="40dp"
+        android:background="@drawable/round_corner_green"
+        android:fontFamily="@font/montserrat_light"
+        android:text="@string/back"
+        android:textColor="@color/colorLightFont"
+        android:textSize="25sp" />
+
+    </TableLayout>
+</ScrollView>
