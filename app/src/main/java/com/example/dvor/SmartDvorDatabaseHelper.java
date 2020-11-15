@@ -6,10 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.smartdvor.User;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.example.ftl.User;
 
 //Тестовый класс. Бд создается внутри и здесь же она удаляется после работы.
 

@@ -1,4 +1,4 @@
-package com.example.smartdvor;
+package com.example.ftl;
 
 public class User {
 

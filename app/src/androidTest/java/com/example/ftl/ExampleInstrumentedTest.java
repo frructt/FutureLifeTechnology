@@ -1,4 +1,4 @@
-package com.example.smartdvor;
+package com.example.ftl;
 
 import android.content.Context;
 

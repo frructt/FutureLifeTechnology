@@ -1,13 +1,9 @@
-package com.example.smartdvor;
+package com.example.ftl;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -25,13 +21,13 @@ public class LoginFragment extends Fragment {
     private TextView txtv1;
     private TextView txtv2;
 
-    private EditText editTextPhoneNumber;
+    private EditText editTextUsername;
     private EditText editTextPassword;
 
     private Button btnLogin;
 
-    private SQLiteDatabase db;
-    private SmartDvorDatabaseHelper smartDvorDatabaseHelper;
+//    private SQLiteDatabase db;
+//    private SmartDvorDatabaseHelper smartDvorDatabaseHelper;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -42,9 +38,9 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
-        smartDvorDatabaseHelper = new SmartDvorDatabaseHelper(this.requireContext());
+//        smartDvorDatabaseHelper = new SmartDvorDatabaseHelper(this.requireContext());
 
-        editTextPhoneNumber = rootView.findViewById(R.id.et_signin_username);
+        editTextUsername = rootView.findViewById(R.id.et_signin_username);
         editTextPassword = rootView.findViewById(R.id.et_signin_password);
 
         btnLogin = rootView.findViewById(R.id.btn_signin);
@@ -53,20 +49,23 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String PhoneNumber = editTextPhoneNumber.getText().toString();
+                String Username = editTextUsername.getText().toString();
                 String Password = editTextPassword.getText().toString();
 
-                db = smartDvorDatabaseHelper.getReadableDatabase();
+                Intent intent = new Intent(getActivity(), GeneralActivity.class);
+                startActivity(intent);
 
-                boolean checkUser = smartDvorDatabaseHelper.checkCorrectUsersAuthentificationData(db, PhoneNumber, Password);
-
-                if (checkUser) {
-                    Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(LoginFragment.this.requireContext(), "You do not have an account yet", Toast.LENGTH_LONG).show();
-                }
+                //                db = smartDvorDatabaseHelper.getReadableDatabase();
+//
+//                boolean checkUser = smartDvorDatabaseHelper.checkCorrectUsersAuthentificationData(db, PhoneNumber, Password);
+//
+//                if (checkUser) {
+//                    Intent intent = new Intent(getActivity(), ProfileActivity.class);
+//                    startActivity(intent);
+//                }
+//                else {
+//                    Toast.makeText(LoginFragment.this.requireContext(), "You do not have an account yet", Toast.LENGTH_LONG).show();
+//                }
             }
         });
 

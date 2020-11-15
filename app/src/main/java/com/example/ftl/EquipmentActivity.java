@@ -1,14 +1,14 @@
-package com.example.smartdvor;
+package com.example.ftl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ReportActivity extends AppCompatActivity {
+public class EquipmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.activity_equipment);
     }
 }

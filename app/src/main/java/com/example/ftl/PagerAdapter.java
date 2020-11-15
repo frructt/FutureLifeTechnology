@@ -1,4 +1,4 @@
-package com.example.smartdvor;
+package com.example.ftl;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
