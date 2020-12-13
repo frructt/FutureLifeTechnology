@@ -1,11 +1,15 @@
 package com.example.ftl;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +18,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.Connection.ConnectionCustom;
 import com.example.dvor.SmartDvorDatabaseHelper;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class LoginFragment extends Fragment {
 
@@ -25,6 +36,9 @@ public class LoginFragment extends Fragment {
     private EditText editTextPassword;
 
     private Button btnLogin;
+
+    private Connection connection;
+    private Statement statement;
 
 //    private SQLiteDatabase db;
 //    private SmartDvorDatabaseHelper smartDvorDatabaseHelper;
@@ -49,11 +63,13 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String Username = editTextUsername.getText().toString();
-                String Password = editTextPassword.getText().toString();
+                new loginUser().execute("");
 
-                Intent intent = new Intent(getActivity(), GeneralActivity.class);
-                startActivity(intent);
+//                String Username = editTextUsername.getText().toString();
+//                String Password = editTextPassword.getText().toString();
+
+//                Intent intent = new Intent(getActivity(), GeneralActivity.class);
+//                startActivity(intent);
 
                 //                db = smartDvorDatabaseHelper.getReadableDatabase();
 //
@@ -72,6 +88,109 @@ public class LoginFragment extends Fragment {
 //        showData(rootView);
 
         return rootView;
+    }
+
+    public class loginUser extends AsyncTask<String, String, String> {
+
+        String z = null;
+        Boolean isSuccess = false;
+
+        @Override
+        protected void onPreExecute() {
+//            textViewReport.setText("Sending data to database.");
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+//            if (isSuccess)
+//                textViewReport.setText("SUCCESS");
+//            else
+//                textViewReport.setText("NOT SUCCESS");
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            connection = connectionClass(ConnectionCustom.username.toString(), ConnectionCustom.password.toString(), ConnectionCustom.database.toString(), ConnectionCustom.ip.toString());
+            if (connection == null) {
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), "Check your internet connection.", Toast.LENGTH_LONG).show();
+                    }
+                });
+                z = "On Internet Connection.";
+            } else {
+                try {
+//                    connection = connectionClass(ConnectionCustom.username.toString(), ConnectionCustom.password.toString(), ConnectionCustom.database.toString(), ConnectionCustom.ip.toString());
+
+//                    id++;
+                    String sql = "SELECT * FROM flt WHERE username = '"+editTextUsername.getText()+"' AND password = '"+editTextPassword.getText()+"' ";
+                    statement = connection.createStatement();
+//                    statement.executeUpdate(sql);
+                    ResultSet resultSet = statement.executeQuery(sql);
+
+                    if (resultSet.next()) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getActivity(), "Login SUCCESS", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        z = "Success";
+//                        Toast.makeText(getActivity(), "Login SUCCESS", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getActivity(), GeneralActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    } else {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getActivity(), "Login is NOT SUCCESS", Toast.LENGTH_LONG).show();
+                            }
+                        });
+//                        Toast.makeText(getActivity(), "Login is NOT SUCCESS", Toast.LENGTH_LONG).show();
+                    }
+
+                    isSuccess = true;
+                } catch (SQLException sqlException) {
+                        sqlException.printStackTrace();
+                        Log.e("SQL Exception : ", sqlException.getMessage());
+                        isSuccess = false;
+//                        z = sqlException.getMessage();
+                }
+
+            }
+            return z;
+        }
+    }
+
+    @SuppressLint("NewApi")
+    public Connection connectionClass(String username, String password, String database, String server) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+        StrictMode.setThreadPolicy(policy);
+
+        Connection connection = null;
+        String connectionURL = null;
+
+        try {
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+            connectionURL = "jdbc:jtds:sqlserver://" + server + '/' + database + ";user=" + username + ";password=" + password + ";";
+            connection = DriverManager.getConnection(connectionURL);
+
+//            textView.setText("SUCCESS");
+        } catch (ClassNotFoundException classNotFoundException) {
+//            classNotFoundException.printStackTrace();
+//            textView.setText("CLASS NOT FOUND EXCEPTION");
+            Log.e("CLASS ERROR : ", classNotFoundException.getMessage());
+        } catch (SQLException sqlException) {
+//            sqlException.printStackTrace();
+//            textView.setText("SQL EXCEPTION");
+            Log.e("SQL ERROR", sqlException.getMessage());
+        }
+
+        return connection;
     }
 
 //    private void showData(@NonNull View view) {

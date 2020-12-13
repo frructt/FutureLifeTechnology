@@ -38,7 +38,7 @@
                 android:background="@drawable/round_corner_green"
                 android:fontFamily="@font/montserrat_light"
                 android:hint="@string/username"
-                android:inputType="phone"
+                android:inputType="text"
                 android:paddingStart="20dp"
                 android:textColor="@color/colorLightFont"
                 android:textSize="22sp" />
