@@ -137,8 +137,8 @@ public class RegisterFragment extends Fragment {
                 if (connection == null) {
                     z = "Check your internet connection.";
                 } else {
-                    id++;
-                    String sql = "INSERT INTO flt (id, firstname, lastname, username, password) VALUES ('"+id+"', '"+editTextFirstName.getText()+"', '"+editTextLastName.getText()+"', '"+editTextUsername.getText()+"', '"+editTextPassword.getText()+"');";
+                    id=3;
+                    String sql = "INSERT INTO flt (firstname, lastname, username, password) VALUES ('"+id+"', '"+editTextFirstName.getText()+"', '"+editTextLastName.getText()+"', '"+editTextUsername.getText()+"', '"+editTextPassword.getText()+"');";
                     statement = connection.createStatement();
                     statement.executeUpdate(sql);
                     isSuccess = true;
